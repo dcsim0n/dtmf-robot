@@ -1,0 +1,5 @@
+# List of files and directories to ignore
+# AKA, things we don't want to share with everyone
+# Dana Simmons 2019
+
+Pipfile.lock
