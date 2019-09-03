@@ -13,7 +13,8 @@ from multiprocessing import Queue, Process
 LeftWheel = Motor(2,3,enable=4,pwm=False)
 RightWheel = Motor(17,27,enable=22,pwm=False)
 
-MOVESIZE = 1
+MOVESIZE = .5 
+TURNSIZE = .25
 
 running = True
 
@@ -40,14 +41,14 @@ def turnRight():
   print("Turning Right")
   RightWheel.forward()
   LeftWheel.backward()
-  time.sleep(MOVESIZE)
+  time.sleep(TURNSIZE)
   stop()
 
 def turnLeft():
   print("Rutning Left")
   RightWheel.backward()
   LeftWheel.forward()
-  time.sleep(MOVESIZE)
+  time.sleep(TURNSIZE)
   stop()
 
 # DTMF KEYS
@@ -59,9 +60,9 @@ directionControls = {
   "1": lambda : print("doing 1"),
   "2": forward,
   "3": lambda : print("doing 3"),
-  "4": turnLeft,
+  "4": turnRight,
   "5": stop,
-  "6": turnRight,
+  "6": turnLeft,
   "7": lambda : print("doing 7"),
   "8": reverse,
   "9": lambda : print("doing 9"),
